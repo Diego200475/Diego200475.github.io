@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocalización</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="area-nav">
+        <h2>Pide permisos de ubicación al navegador</h2>
+        <button id="pedirvan">Pedir permisos de geolocalización</button>
+        <div>Por navegador:</div>
+        <div>Latitud: <span id="nlat"></span></div>
+        <div>Longitud: <span id="nlon"></span></div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            let watchId;
+
+            // Click al botón para pedir permisos de geolocalización
+            $("#pedirvan").click(function () {
+                // Verificamos si el navegador soporta geolocalización
+                if (navigator.geolocation) {
+                    // Función para obtener y actualizar las coordenadas
+                    function updatePosition(position) {
+                        $("#nlat").text(position.coords.latitude);
+                        $("#nlon").text(position.coords.longitude);
+                    }
+
+                    // Error handling function
+                    function showError(error) {
+                        alert("Error al obtener la geolocalización: " + error.message);
+                    }
+
+                    // Pedimos los datos de geolocalización al navegador y empezamos a observar cambios
+                    watchId = navigator.geolocation.watchPosition(updatePosition, showError, {
+                        maximumAge: 0, // No cacheamos la ubicación
+                        timeout: 5000, // Timeout para la llamada
+                        enableHighAccuracy: true // Alta precisión
+                    });
+                } else {
+                    alert("El navegador no soporta geolocalización");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

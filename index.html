@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arquitectura de Computadoras</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            background-image: url('Fondo.jpg');
+            background-size: cover; /* Para cubrir todo el fondo */
+            background-position: center; /* Para centrar la imagen */
+            background-color: rgba(0, 0, 0, 0.007); /* Opacidad del 50% (ajustar según necesidad) */
+
+            color: #fff; /* Color de texto predeterminado */
+        }
+        .enlace_personalizado {
+            color: red; /* Cambia "red" al color que desees */
+        }
+        header {
+            background-color: rgba(51, 51, 51, 0.11); /* Fondo del encabezado con opacidad */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            background-color: rgba(102, 102, 102, 0.308); /* Fondo de la barra de navegación con opacidad */
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #999;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+            /* Ajustar la opacidad del contenido */
+            opacity: 1; /* Valor entre 0 y 1 (0 es completamente transparente, 1 es completamente opaco) */
+        }
+        h1, h2, p, ul {
+            /* Cambiar el color del texto */
+            color: #fff;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Arquitectura de Computadoras</h1>
+    </header>
+    <nav>
+        <a href="#unidad1">Unidad 1</a>
+        <a href="#unidad2">Unidad 2</a>
+        <a href="#unidad3">Unidad 3</a>
+        <a href="#unidad4">Unidad 4</a>
+        <a href="#practicas">Prácticas y Tareas</a>
+    </nav>
+    <div class="container">
+        <section id="unidad1">
+            <h2>Unidad 1: Modelos de arquitecturas de computo</h2>
+            <p>1.1 Modelos de arquitecturas de computo</p>
+            <ul>
+                <li>1.1.1 Clásicas</li>
+                <li>1.1.2 Segmentadas</li>
+                <li>1.1.3 De multiprocesamiento</li>
+            </ul>
+            <p>1.2 Análisis de los componentes</p>
+            <ul>
+                <li>1.2.1 Arquitecturas</li>
+                <ul>
+                    <li>1.2.1.1 Unidad central de procesamiento</li>
+                    <li>1.2.1.2 Unidad aritmética lógica</li>
+                    <li>1.2.1.3 Registros</li>
+                    <li>1.2.1.4 Buses</li>
+                </ul>
+                <li>1.2.2 Memoria</li>
+                <ul>
+                    <li>1.2.2.1 Conceptos básicos del manejo de la memoria</li>
+                    <li>1.2.2.2 Memoria Principal</li>
+                    <li>1.2.2.3 Memoria Caché</li>
+                </ul>
+                <li>1.2.3 Manejo de la entrada/salida</li>
+                <ul>
+                    <li>1.2.3.1 Módulos de entrada/salida</li>
+                    <li>1.2.3.2 Entrada/salida propaganda</li>
+                    <li>1.2.3.3 Entrada/salida mediante interrupciones</li>
+                    <li>1.2.3.4 Acceso directo a memoria</li>
+                    <li>1.2.3.5 Canales y procesadores de entrada/salida</li>
+                </ul>
+                <li>1.2.4 Buses</li>
+                <ul>
+                    <li>1.2.4.1 Tipos de buses</li>
+                    <li>1.2.4.2 Estructura de los buses</li>
+                    <li>1.2.4.3 Jerarquías de buses</li>
+                </ul>
+                <li>1.2.5 Interrupciones</li>
+            </ul>
+            <a href="Unidad 1.html" class="enlace_personalizado">Ir a Unidad 1</a>
+        </section>
+
+        <section id="unidad2">
+            <h2>Unidad 2: Organización del procesador</h2>
+            <ul>
+                <li>2.1 Organización del procesador</li>
+                <li>2.2 Estructura de registros</li>
+                <ul>
+                    <li>2.2.1 Registros visibles para el usuario</li>
+                    <li>2.2.2 Registros de control y de estados</li>
+                    <li>2.2.3 Ejemplos de registros de CPU reales</li>
+                </ul>
+                <li>2.3 El ciclo de instrucción</li>
+                <ul>
+                    <li>2.3.1 Ciclo Fetch - Decade - Execute</li>
+                    <li>2.3.2 Segmentación de instrucciones</li>
+                    <li>2.3.3 Conjunto de instrucciones. Características y funciones</li>
+                    <li>2.3.4 Modos de direccionamiento</li>
+                </ul>
+                <li>2.4 Casos de estudio de CPU reales</li>
+            </ul>
+            <a href="Unidad 2.html" class="enlace_personalizado">Ir a Unidad 2</a>
+        </section>
+
+        <section id="unidad3">
+            <h2>Unidad 3: Chipset y Aplicaciones</h2>
+            <ul>
+                <li>3.1 Chipset</li>
+                <ul>
+                    <li>3.1.1 Unidad Central del Procesamiento (CPU)</li>
+                    <li>3.1.2 Controlador del bus</li>
+                    <li>3.1.3 Puertas de entrada salida E/S</li>
+                    <li>3.1.4 Controlador de interrupciones</li>
+                    <li>3.1.5 Controlador de acceso directo a memoria (DMA)</li>
+                    <li>3.1.6 Circuitos de temporización</li>
+                    <li>3.1.7 Circuitos de control</li>
+                    <li>3.1.8 Controladores de video</li>
+                </ul>
+                <li>3.2 Aplicaciones</li>
+                <ul>
+                    <li>3.2.1 Entrada/Salida</li>
+                    <li>3.2.2 Almacenamiento</li>
+                    <li>3.2.3 Fuentes de alimentación</li>
+                </ul>
+                <li>3.3 Ambientes de servicio</li>
+                <ul>
+                    <li>3.3.1 Negocios</li>
+                    <li>3.3.2 Industria</li>
+                    <li>3.3.3 Comercio electrónico</li>
+                </ul>
+            </ul>
+            <a href="Unidad 3.html" class="enlace_personalizado">Ir a Unidad 3</a>
+        </section>
+
+        <section id="unidad4">
+            <h2>Unidad 4: Computación Paralela</h2>
+            <ul>
+                <li>4.1 Aspectos básicos de la computación paralela</li>
+                <ul>
+                    <li>4.2 Tipos de computación Paralela</li>
+                    <ul>
+                        <li>4.2.1 Clasificación</li>
+                        <li>4.2.2 Arquitectura de computadoras secuenciales</li>
+                        <li>4.2.3 Organización de direcciones de memoria</li>
+                    </ul>
+                </ul>
+            </ul>
+            <a href="Unidad 4.html" class="enlace_personalizado">Ir a Unidad 4</a>
+        </section>
+
+        <section id="practicas">
+            <h2>Prácticas y Tareas</h2>
+            <a href="https://drive.google.com/drive/folders/16ajg__5sS169rX277VSKAMCSVXe_vyKz?usp=drive_link" class="enlace_personalizado">Ir a los documentos</a>
+            <!-- Aquí puedes añadir los enlaces a los archivos de Google Drive -->
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computación Paralela</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            
+            background-image: url('Paralela.jpg');
+            background-size: cover; /* Para cubrir todo el fondo */
+            background-position: center; /* Para centrar la imagen */
+            background-color: rgba(0, 0, 0, 0.007); /* Opacidad del 50% (ajustar según necesidad) */
+
+            color: #fff; /* Color de texto predeterminado */
+        }
+        header {
+            background-color: rgba(51, 51, 51, 0.11); /* Fondo del encabezado con opacidad */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        nav {
+            background-color: rgba(102, 102, 102, 0.308); /* Fondo de la barra de navegación con opacidad */
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            background-color: #999;
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 0 20px;
+            /* Ajustar la opacidad del contenido */
+            opacity: 1; /* Valor entre 0 y 1 (0 es completamente transparente, 1 es completamente opaco) */
+        }
+        h1, h2, p, ul {
+            /* Cambiar el color del texto */
+            color: #fff;
+        }
+        h2 {
+            margin-top: 40px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Computación Paralela</h1>
+
+    <h2>4.1 Aspectos básicos de la computación paralela</h2>
+    <p>La computación paralela es una forma de cómputo en la que muchas instrucciones se ejecutan simultáneamente, operando sobre el principio de que problemas grandes, a menudo se pueden dividir en unos más pequeños, 
+        que luego son resueltos simultáneamente (en paralelo). Hay varias formas diferentes de computación paralela: paralelismo a nivel de bit, paralelismo a nivel de instrucción, paralelismo de datos y paralelismo de tareas. 
+        El paralelismo se ha empleado durante muchos años, sobre todo en la computación de altas prestaciones, pero el interés en ella ha crecido últimamente debido a las limitaciones físicas que impiden el aumento de la frecuencia. 
+        Como el consumo de energía y por consiguiente la generación de calor de las computadoras constituye una preocupación en los últimos años, la computación en paralelo se ha convertido en el paradigma dominante en la arquitectura 
+        de computadores, principalmente en forma de procesadores multinúcleo.</p>
+
+    <p>Los programas informáticos paralelos son más difíciles de escribir que los secuenciales, porque la concurrencia introduce nuevos tipos de errores de software, siendo las condiciones de carrera los más comunes. La comunicación y 
+        sincronización entre diferentes subtareas son algunos de los mayores obstáculos para obtener un buen rendimiento del programa paralelo. La máxima aceleración posible de un programa como resultado de la paralelización se conoce como la ley de Amdahl.</p>
+
+        <h3>Ley de Amdahl y Ley de Gustafson</h3>
+        <ul>
+            <li>La ley de Amdahl establece que una pequeña porción del programa que no puede paralelizarse limitará la aceleración que se logra con la paralelización.</li>
+            <li>La ley de Gustafson, relacionada con la de Amdahl, supone que la cantidad total de trabajo que se hará en paralelo varía linealmente con el número de procesadores.</li>
+        </ul>
+        
+        <h3>Dependencias</h3>
+        <ul>
+            <li>Es fundamental entender la dependencia de datos en la implementación de algoritmos paralelos.</li>
+            <li>Las condiciones de Bernstein describen cuándo dos segmentos de un programa son independientes y pueden ejecutarse en paralelo.</li>
+        </ul>
+        
+        <h3>Condiciones de Carrera, Exclusión Mutua, Sincronización y Desaceleración Paralela</h3>
+        <ul>
+            <li>Las subtareas en un programa paralelo son llamadas hilos, y a menudo necesitan sincronizarse para actualizar variables compartidas entre ellos.</li>
+            <li>Las aplicaciones se clasifican según la frecuencia con la que sus subtareas se sincronizan o comunican entre sí, desde grano fino hasta grueso y vergonzosamente paralelo.</li>
+        </ul>
+        
+        <h3>Modelos de Consistencia</h3>
+        <ul>
+            <li>Los lenguajes de programación en paralelo y las computadoras paralelas deben tener un modelo de consistencia de datos, como la consistencia secuencial de Leslie Lamport.</li>
+            <li>La consistencia secuencial es la propiedad de un programa en la que su ejecución en paralelo produce los mismos resultados que un programa secuencial.</li>
+        </ul>
+        
+        <h3>Taxonomía de Flynn</h3>
+        <ul>
+            <li><strong>SISD (Single Instruction, Single Data):</strong> Un solo elemento de procesamiento con acceso a una única instrucción y almacenamiento de datos.</li>
+            <li><strong>MISD (Multiple Instruction, Single Data):</strong> Múltiples elementos de procesamiento con memoria privada del programa y acceso común a una memoria global de información.</li>
+            <li><strong>SIMD (Single Instruction, Multiple Data):</strong> Múltiples elementos de procesamiento con acceso privado a la memoria de información y una sola memoria de programa.</li>
+            <li><strong>MIMD (Multiple Instruction, Multiple Data):</strong> Múltiples unidades de procesamiento con tanto instrucciones como información separada.</li>
+        </ul>
+    
+    <h2>4.2 Tipos de computación Paralela</h2>
+
+    <h3>Paralelismo a Nivel de Bit</h3>
+<p>Desde el advenimiento de la integración a gran escala (VLSI) como tecnología de fabricación de chips de computadora en la década de 1970 hasta alrededor de 1986, la aceleración en la arquitectura de computadores se 
+    lograba en gran medida duplicando el tamaño de la palabra en la computadora. El aumento del tamaño de la palabra reduce el número de instrucciones que el procesador debe ejecutar para realizar una operación en variables 
+    cuyos tamaños son mayores que la longitud de la palabra.</p>
+
+<h3>Paralelismo a Nivel de Instrucción</h3>
+<p>Los procesadores modernos tienen pipelines de instrucciones de varias etapas. Cada etapa en el pipeline corresponde a una acción diferente que el procesador realiza en la instrucción correspondiente a la etapa.</p>
+
+<h3>Paralelismo de Datos</h3>
+<p>El paralelismo de datos es el paralelismo inherente en programas con ciclos, que se centra en la distribución de los datos entre los diferentes nodos computacionales que deben tratarse en paralelo. 
+    Muchas de las aplicaciones científicas y de ingeniería muestran paralelismo de datos.</p>
+
+<h3>Paralelismo de Tareas</h3>
+<p>El paralelismo de tareas es un paradigma de la programación concurrente que consiste en asignar distintas tareas a cada uno de los procesadores de un sistema de cómputo.</p>
+
+
+    <h3>4.2.1 Clasificación</h3>
+    <p>Las computadoras paralelas se pueden clasificar de acuerdo con el nivel en el que el hardware soporta paralelismo. Esta clasificación es análoga a la distancia entre los nodos básicos de cómputo. Estos no son excluyentes 
+        entre sí, por ejemplo, los grupos de multiprocesadores simétricos son relativamente comunes.</p>
+       
+    <h3>Multiprocesamiento Simétrico (SMP)</h3>
+<p>Un sistema computacional con múltiples procesadores idénticos que comparten memoria y se conectan a través de un bus. Sin embargo, la contención del bus puede prevenir el escalado de esta arquitectura.</p>
+
+<h3>Computación en Clúster</h3>
+<p>Un grupo de ordenadores débilmente acoplados que trabajan en estrecha colaboración, a veces considerados como un solo equipo.</p>
+
+<h3>Procesamiento Paralelo Masivo (MPP)</h3>
+<p>Son sistemas más grandes, con más de 100 procesadores, donde cada CPU tiene su propia memoria y una copia del sistema operativo y la aplicación.</p>
+
+<h3>Computación Distribuida</h3>
+<p>Utiliza ordenadores que se comunican a través de Internet para trabajar en un problema dado.</p>
+
+<h3>Computadoras Paralelas Especializadas</h3>
+<p>Dispositivos paralelos especializados que pueden ser aplicables solo a unas pocas clases de problemas paralelos.</p>
+
+<h3>Cómputo Reconfigurable con Arreglos de Compuertas Programables (FPGA)</h3>
+<p>El uso de un arreglo de compuertas programables como coprocesador de un ordenador de propósito general.</p>
+
+<h3>Cómputo de Propósito General en Unidades de Procesamiento Gráfico (GPGPU)</h3>
+<p>Los GPUs son co-procesadores que han sido optimizados para procesamiento de gráficos por computadora y ahora se utilizan para cómputo de propósito general.</p>
+
+<h3>Circuitos Integrados de Aplicación Específica (ASIC)</h3>
+<p>Optimizados para una aplicación específica, lo que les permite superar a un ordenador de propósito general en esa aplicación.</p>
+
+<h3>Procesadores Vectoriales</h3>
+<p>Ejecutan la misma instrucción en grandes conjuntos de datos, trabajando sobre arreglos lineales de números o vectores.</p>
+
+    <h3>4.2.2 Arquitectura de computadoras secuenciales</h3>
+    <p>A diferencia de los sistemas combinacionales, en los sistemas secuenciales, los valores de las salidas, en un momento dado, 
+        no dependen exclusivamente de los valores de las entradas en dicho momento, sino también dependen del estado anterior o estado interno. El sistema secuencial 
+        más simple es el biestable, de los cuales, el de tipo D (o cerrojo) es el más utilizado actualmente.
+        El sistema secuencial requiere de la utilización de un dispositivo de memoria que pueda almacenar la historia pasada de sus entradas 
+        (denominadas variables de estado) y le permita mantener su estado durante algún tiempo, estos dispositivos de memoria pueden ser sencillos como un simple retardador 
+        o celdas de memoria de tipo DRAM, SRAM o multivibradores biestables también conocido como Flip-Flop.</p>
+
+    <h4>Tipos de Sistemas Secuenciales</h4>
+    <p>En este tipo de circuitos entra un factor que no se había considerado en los circuitos combinacionales, dicho factor es el tiempo, según como manejan el tiempo se 
+        pueden clasificar en: circuitos secuenciales síncronos y circuitos secuenciales asíncronos.</p>
+        
+    <h4>Circuitos Secuenciales Asíncronos</h4>
+    <p>En los circuitos secuenciales asíncronos, los cambios de estados ocurren al ritmo natural asociado a las compuertas lógicas utilizadas en su implementación. Esto 
+        produce retardos en cascada entre los biestables del circuito, ya que no utilizan elementos especiales de memoria. Esto puede ocasionar algunos problemas de funcionamiento 
+        debido a que estos retardos naturales no están bajo el control del diseñador y además no son idénticos en cada compuerta lógica.</p>
+        
+    <h4>Circuitos Secuenciales Síncronos</h4>
+    <p>Los circuitos secuenciales síncronos solo permiten un cambio de estado en los instantes marcados o autorizados por una señal de sincronismo de tipo oscilatorio denominada reloj. 
+        Esta señal puede provenir de un cristal o de un circuito capaz de producir una serie de pulsos regulares en el tiempo. Esto soluciona los problemas que tienen los circuitos asíncronos 
+        originados por cambios de estado no uniformes dentro del sistema o circuito.</p>
+        
+    <h3>4.2.3 Organización de direcciones de memoria</h3>
+    <p>La memoria principal en un ordenador en paralelo puede ser compartida —compartida entre todos los elementos de procesamiento en un 
+        único espacio de direcciones—, o distribuida —cada elemento de procesamiento tiene su propio espacio local de direcciones—. El término 
+        memoria distribuida se refiere al hecho de que la memoria se distribuye lógicamente, pero a menudo implica que también se distribuyen físicamente. La 
+        memoria distribuida - compartida y la virtualización de memoria combinan los dos enfoques, donde el procesador tiene su propia memoria local y permite 
+        acceso a la memoria de los procesadores que no son locales. Los accesos a la memoria local suelen ser más rápidos que los accesos a memoria no local. Las 
+        arquitecturas de ordenador en las que cada elemento de la memoria principal se puede acceder con igual latencia y ancho de banda son conocidas como arquitecturas 
+        de acceso uniforme a memoria (UMA). Típicamente, sólo se puede lograr con un sistema de memoria compartida, donde la memoria no está distribuida físicamente. Un sistema 
+        que no tiene esta propiedad se conoce como arquitectura de acceso a memoria no uniforme (NUMA). Los sistemas de memoria distribuidos tienen acceso no uniforme a la memoria.</p>
+</body>
+</html>
